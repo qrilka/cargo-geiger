@@ -206,7 +206,7 @@ mod entry_serde {
         S: Serializer,
     {
         let mut values = map.values().collect::<Vec<_>>();
-        values.sort_by(|a, b| a.package_id().cmp(b.package_id()));
+        values.sort_by_key(|&a| a.package_id());
         let mut seq = serializer.serialize_seq(Some(values.len()))?;
         for value in values {
             seq.serialize_element(value)?;

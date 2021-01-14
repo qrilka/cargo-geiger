@@ -219,7 +219,6 @@ mod find_tests {
         let actual_rs_files = find_rs_files_in_dir(temp_dir.path());
 
         let mut actual_rs_file_names = actual_rs_files
-            .into_iter()
             .map(|f| {
                 String::from(f.as_path().file_name().unwrap().to_str().unwrap())
             })
